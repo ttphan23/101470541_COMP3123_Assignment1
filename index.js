@@ -15,11 +15,11 @@ connectDB();
 app.use('/api/v1/user', require('./userRoutes'));
 app.use('/api/v1/emp', require('./employeeRoutes'));
 
-app.use((req,res)=> res.status(404).json({ status:false, message:"Route not found" }));
+app.use((req, res) => res.status(404).json({ status: false, message: "Route not found" }));
 
-app.use((err,req,res,next) => {
+app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send("Server Error");
 });
 
-app.listen(process.env.PORT || 3000, ()=> console.log("🚀 Server running"));
+module.exports = app;
